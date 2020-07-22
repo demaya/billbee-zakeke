@@ -12,3 +12,12 @@ jobs:
     - uses: montudor/action-zip@v0.1.0
       with:
         args: zip -qq -r ./billbee-zakeke.zip . -i *
+        
+  publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact
+        path: ./billbee-zakeke.zip
