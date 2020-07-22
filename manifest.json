@@ -1,0 +1,17 @@
+{
+    "name": "Billbee-Zakeke-Extension",
+    "version": "1.1.0",
+    "description": "Show custom Zakeke images in Billbee",
+    "manifest_version": 2,
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": false
+    },
+    "permissions": ["storage", "tabs", "https://app.billbee.io/de/Order?openOrder=*"],
+    "content_scripts": [
+        {
+            "matches": ["https://app.billbee.io/de/Order?openOrder=*"],
+            "js": ["background.js"]
+        }
+    ]
+}

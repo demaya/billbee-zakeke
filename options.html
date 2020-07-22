@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Extension Options</title>
+</head>
+
+<body>
+    <div>
+        <label>
+            URL of your wordpress site<br />
+            <input type="url" id="url" style="width: 100%">
+        </label>
+    </div>
+
+    <div>
+        <label>
+            WooCommerce API KEY<br />
+            <input type="text" id="key" style="width: 100%">
+        </label>
+    </div>
+
+    <div>
+        <label>
+            WooCommerce API SECRET<br />
+            <input type="text" id="secret" style="width: 100%">
+        </label>
+    </div>
+
+    <div>
+        <a href="https://woocommerce.github.io/woocommerce-rest-api-docs/?javascript#rest-api-keys" target="__blank">How to generate api
+            keys for WooCommerce</a>
+    </div>
+
+    <div id="status"></div>
+    <button id="save">Save</button>
+
+    <script src="options.js"></script>
+</body>
+
+</html>
