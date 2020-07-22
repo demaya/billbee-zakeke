@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: montudor/action-zip@v0.1.0
       with:
-        args: zip -qq -r ./billbee-zakeke.zip . -i *
+        args: zip -r ./billbee-zakeke.zip *
 
     - uses: actions/upload-artifact@v2
       with:
