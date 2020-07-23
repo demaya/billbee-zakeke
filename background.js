@@ -11,10 +11,10 @@ chrome.storage.local.get(
 
         // wait until page is loaded (element exists) and then call replaceImages method with all data needed
         let checkExist = setInterval(() => {
-            let order_id_element = document.body.querySelector("div.modal-header span.colValue.editData");
-            if (order_id_element) {
+            let order_id_element = document.body.querySelector(".panel-body > .form-group > div > label");
+            if (order_id_element && 0 != +order_id_element.innerText) {
                clearInterval(checkExist);
-               replaceImages(+order_id_element.innerHTML, WORDPRESS_URL, KEY, SECRET);
+               replaceImages(+order_id_element.innerText, WORDPRESS_URL, KEY, SECRET);
             }
         }, 100); // check every 100ms
     }
@@ -24,8 +24,8 @@ function replaceImages(order_id, WORDPRESS_URL, KEY, SECRET) {
     let product_url = `${WORDPRESS_URL}/wp-json/wc/v3/orders/${order_id}?consumer_key=${KEY}&consumer_secret=${SECRET}`;
 
     let items = document.body
-        .querySelector("#details #orderDetailsBody")
-        .querySelectorAll("tr.detailRow");
+        .querySelector(".table-striped tbody")
+        .querySelectorAll("tr");
 
     fetch(product_url)
         .then((res) => res.json())
@@ -50,11 +50,9 @@ function replaceImages(order_id, WORDPRESS_URL, KEY, SECRET) {
                     }
 
                     if (imageString !== "") {
-                        items[product]
-                            .querySelectorAll("td")[0]
-                            .querySelector(
-                                "span.detailImg"
-                            ).innerHTML = imageString;
+                        items[product].querySelectorAll(
+                            "td"
+                        )[1].innerHTML = imageString;
                     }
                 }
             }
