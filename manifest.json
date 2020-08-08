@@ -1,17 +1,25 @@
 {
     "name": "Billbee-Zakeke-Extension",
-    "version": "1.1.2",
+    "version": "1.1.3",
     "description": "Show custom Zakeke images in Billbee",
     "manifest_version": 2,
     "options_ui": {
         "page": "options.html",
         "open_in_tab": false
     },
-    "permissions": ["storage", "tabs", "https://app.billbee.io/app_v2/shipping/single/*"],
+    "permissions": [
+        "storage",
+        "tabs",
+        "webNavigation",
+        "https://app.billbee.io/app_v2/shipping/single/*"
+    ],
     "content_scripts": [
         {
             "matches": ["https://app.billbee.io/app_v2/shipping/single/*"],
-            "js": ["background.js"]
+            "js": ["content.js"]
         }
-    ]
+    ],
+    "background": {
+        "scripts": ["background.js"]
+    }
 }
