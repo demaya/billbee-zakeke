@@ -44,9 +44,9 @@ function replaceImages(order_id, WORDPRESS_URL, KEY, SECRET) {
                     for (let pre in previews) {
                         if (+pre !== 0)
                             imageString +=
-                                '<img src="' +
+                                '<a href="' + previews[pre].url + '" target="_blank"><img src="' +
                                 previews[pre].url +
-                                '" height="200px" width="200px"/>';
+                                '" height="200px" width="200px"/></a>';
                     }
 
                     if (imageString !== "") {
